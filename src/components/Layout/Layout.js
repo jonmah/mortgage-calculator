@@ -1,12 +1,7 @@
 import React from 'react'
 
-import { Footer, Header } from '../../components'
+import { Container } from './Layout.styled'
 
-const Layout = () => (
-  <>
-    <Header />
-    <Footer />
-  </>
-)
+const Layout = ({ children }) => <Container>{children}</Container>
 
 export default Layout

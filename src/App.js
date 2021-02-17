@@ -3,13 +3,17 @@ import './App.css'
 
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './theme/global'
-import { Layout } from './components'
+import { Footer, Header, Layout } from './components'
 
 const App = () => {
   return (
     <ThemeProvider theme={{}}>
       <GlobalStyles />
-      <Layout />
+      <Layout>
+        <Header />
+        middle
+        <Footer />
+      </Layout>
     </ThemeProvider>
   )
 }
