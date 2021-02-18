@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { getInterestRates } from '../api/mortgageCalculations'
 import Form from './Form'
 
-const MortgageCalculator = () => {
+const SavingsCalculator = () => {
   const {
     control,
     errors,
@@ -28,10 +28,10 @@ const MortgageCalculator = () => {
 
   return (
     <div>
-      stuff in the MortgageCalculator
+      stuff in the SavingsCalculator
       <Form />
     </div>
   )
 }
 
-export default MortgageCalculator
+export default SavingsCalculator
