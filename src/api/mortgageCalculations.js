@@ -1,4 +1,4 @@
-export const getInterestRates = async () => {
-  const result = await Promise.resolve([1, 2, 3, 4, 5])
+export const getInterestRate = async () => {
+  const result = await Promise.resolve('2.5')
   return result
 }

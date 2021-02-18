@@ -1,36 +1,61 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { getInterestRates } from '../api/mortgageCalculations'
-import Form from './Form'
+import { getInterestRate } from '../api/mortgageCalculations'
+import { Container, Form } from './SavingsCalculator.styled'
+import { Button, MoneyInput, PercentInput } from '../components'
 
 const SavingsCalculator = () => {
   const {
-    control,
-    errors,
-    formState,
+    // control,
+    // errors,
+    // formState,
     handleSubmit,
-    reset,
-    setValue,
+    register,
+    // reset,
+    // setValue,
   } = useForm()
   const [amortizationPeriods] = useState([10, 15, 20, 30, 50])
-  const [interestRates, setInterestRates] = useState([])
+  const [interestRate, setInterestRate] = useState('2.5')
   useEffect(() => {
-    const getRates = async () => {
-      const rates = await getInterestRates()
-      setInterestRates(rates)
+    const populateInterestRate = async () => {
+      const rates = await getInterestRate()
+      setInterestRate(rates)
     }
-    getRates()
+    populateInterestRate()
   }, [])
 
-  console.log(`amortizationPeriod: ${amortizationPeriods}`)
-  console.log(`interestRates: ${interestRates}`)
+  // console.log(`amortizationPeriod: ${amortizationPeriods}`)
+  // console.log(`interestRates: ${interestRates}`)
+
+  const onSubmit = data => console.log(data)
 
   return (
-    <div>
-      stuff in the SavingsCalculator
-      <Form />
-    </div>
+    <Container>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <MoneyInput
+          name="principalAmount"
+          placeholder="Principal Amount"
+          register={register}
+          required
+        />
+        <select name="amortizationPeriod" ref={register}>
+          {amortizationPeriods.map(ap => (
+            <option key={ap} value={ap}>
+              {ap} years
+            </option>
+          ))}
+        </select>
+        <PercentInput
+          name="interestRate"
+          placeholder="Interest Rate"
+          register={register}
+          required
+          value={interestRate}
+        />
+        <Button type="submit" label="Calculate" />
+      </Form>
+    </Container>
   )
 }
 
