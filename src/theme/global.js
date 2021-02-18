@@ -36,6 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --nav-height: 67px;
   }
 
   body {
@@ -49,6 +50,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     overflow: hidden;
     padding: 0;
-    font-family: var(--font-family);
+    font-family: var(--font-family-sans-serif);
     transition: all 0.25s linear;
   }`

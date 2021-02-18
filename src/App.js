@@ -2,7 +2,7 @@ import logo from './logo.svg'
 
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './theme/global'
-import { Footer, Header, Layout } from './components'
+import { Footer, Header, Layout, Main } from './components'
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <GlobalStyles />
       <Layout>
         <Header />
-        middle
+        <Main>Stuff</Main>
         <Footer />
       </Layout>
     </ThemeProvider>
