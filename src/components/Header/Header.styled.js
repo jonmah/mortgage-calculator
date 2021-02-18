@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   color: var(--teal);
-  position: fixed;
-  top: 0;
+  width: 100vw;
 `
 Container.displayName = 'Container'

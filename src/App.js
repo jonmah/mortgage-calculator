@@ -6,9 +6,9 @@ const App = () => {
   return (
     <ThemeProvider theme={{}}>
       <GlobalStyles />
+      <Header />
       <Layout>
-        <Header />
-        <Main>Stuff</Main>
+        <Main>dfdfd</Main>
         <Footer />
       </Layout>
     </ThemeProvider>
