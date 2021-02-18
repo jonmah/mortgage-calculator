@@ -1,5 +1,3 @@
-import logo from './logo.svg'
-
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './theme/global'
 import { Footer, Header, Layout, Main } from './components'
