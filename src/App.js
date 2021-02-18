@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './theme/global'
 import { Footer, Header, Layout, Main } from './components'
-import MortgageCalculator from './MortgageCalculator'
+import SavingsCalculator from './SavingsCalculator'
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Layout>
         <Main>
-          <MortgageCalculator />
+          <SavingsCalculator />
         </Main>
         <Footer />
       </Layout>
