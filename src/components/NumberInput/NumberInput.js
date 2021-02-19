@@ -27,14 +27,18 @@ const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
       const cleanValue = value.replaceAll(',', '')
       setValue(isNotANumber(cleanValue) ? '' : value)
       setDisplayValue(isNotANumber(cleanValue) ? '' : formatNumber(value))
+    } else {
+      setDisplayValue('')
     }
-  }, [value])
+  }, [displayValue, value])
 
   return (
     <Input
       name={name}
       onBlur={() => setValue(parseFloat(value.replaceAll(',', '')).toFixed(2))}
-      onChange={e => setValue(e.target.value)}
+      onChange={e => {
+        setValue(e.target.value)
+      }}
       placeholder={placeholder}
       ref={register}
       value={displayValue}

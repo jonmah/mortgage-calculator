@@ -46,8 +46,6 @@ const SavingsCalculator = () => {
     reset(getValues())
   }
 
-  console.log(formState)
-  console.log(errors)
   return (
     <Container>
       <Banner
