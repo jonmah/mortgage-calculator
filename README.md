@@ -9,9 +9,10 @@ The feature presents a `Mortgage Calculator` that takes in the following informa
 2. Interest rate defaulted to the current federal interest +2.5%
 3. Principal amount
 
-In addition, the user has the ability to specify:
+In addition, the user has the option to specify:
 1. The amount of savings they can set aside each month
 2. The number of months they are able to save (being able to choose from 1 month up to 5 years)
+And by providing this optional budgeting information, the user will be able to see how their amount saved and contributed towards a down payment will reduce the loan principle.
 
 ## Available Scripts
 
