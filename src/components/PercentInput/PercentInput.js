@@ -3,13 +3,7 @@ import React from 'react'
 import { Container, Percent } from './PercentInput.styled'
 import { NumberInput } from '../../components'
 
-const PercentInput = ({
-  defaultValue,
-  name,
-  placeholder,
-  register,
-  required,
-}) => {
+const PercentInput = ({ defaultValue, name, placeholder, register }) => {
   return (
     <Container>
       <NumberInput
