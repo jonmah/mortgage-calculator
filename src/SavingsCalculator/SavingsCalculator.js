@@ -6,7 +6,7 @@ import {
   getMonthlyMortgagePayment,
 } from '../api/mortgageCalculations'
 import { Container, Form, RowItems, Select } from './SavingsCalculator.styled'
-import { Button, MoneyInput, PercentInput } from '../components'
+import { Banner, Button, MoneyInput, PercentInput } from '../components'
 import { transformSubmitData } from './transforms'
 import { isObjectEmpty } from '../transforms/objects'
 
@@ -30,7 +30,7 @@ const SavingsCalculator = () => {
       .map((_, idx) => 1 + idx)
   )
   const [interestRate, setInterestRate] = useState('2.5')
-  const [monthlyPayment, setMonthlyPayment] = useState(0)
+  const [monthlyPayment, setMonthlyPayment] = useState(null)
 
   useEffect(() => {
     const populateInterestRate = async () => {
@@ -50,6 +50,19 @@ const SavingsCalculator = () => {
   console.log(errors)
   return (
     <Container>
+      <Banner
+        isSuccess
+        show={
+          formState.isSubmitSuccessful && !formState.isDirty && monthlyPayment
+        }
+      >
+        Your monthly payment is {monthlyPayment}
+      </Banner>
+      <Banner show={formState.isDirty && !isObjectEmpty(errors)}>
+        {Object.values(errors).map(({ message, ref }) => (
+          <div key={ref}>{message}</div>
+        ))}
+      </Banner>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <RowItems>
           <h1>
@@ -125,7 +138,6 @@ const SavingsCalculator = () => {
           }
         />
       </Form>
-      {monthlyPayment}
     </Container>
   )
 }
