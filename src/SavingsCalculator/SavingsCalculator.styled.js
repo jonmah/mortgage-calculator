@@ -29,6 +29,12 @@ export const Form = styled.form`
     font-size: 1rem;
     margin-bottom: 1rem;
     width: 100%;
+
+    :focus {
+      outline: none;
+      box-shadow: 0 0 5px #47ceff;
+      border: 1px solid #47ceff;
+    }
   }
 
   @media (min-width: 376px) {
@@ -57,9 +63,3 @@ export const Select = styled.select`
   padding: 0.8rem;
 `
 Select.displayName = 'Select'
-
-export const H3 = styled.h3`
-  font-style: normal;
-  font-weight: 250;
-  font-size: 32px;
-`
