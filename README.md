@@ -9,11 +9,31 @@ The feature presents a `Mortgage Calculator` that takes in the following informa
 2. Interest rate defaulted to the current federal interest +2.5%
 3. Principal amount
 
+The calculation for mortgage payments is using the following formula:
+
+Payment = P x (r / n) x (1 + r / n)^n(t) / (1 + r / n)^n(t) - 1
+Where:
+P = Principal Amount
+r = Interest Rate
+n = 12 (months in a year)
+t = Payment Period
+[Source](https://www.thebalance.com/calculate-mortgage-315668#mntl-sc-block_1-0-26)
+
 In addition, the user has the option to specify:
 1. The amount of savings they can set aside each month
 2. The number of months they are able to save (being able to choose from 1 month up to 5 years)
 
+The savings calculation is as follows:
+
+Saved Amount = (Amount per month) x (Number of months)
+
+And then it affects the monthly payment calculation by having
+
+Principal Amount = (Principal Amount) - (Saved Amount)
+
 And by providing this optional budgeting information, the user will be able to see how their amount saved and contributed towards a down payment will reduce the loan principle.
+
+
 
 ## Available Scripts
 
@@ -26,8 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Executes test cases that verify the mathematical computations that go towards composing the data used in the mortgage calculations as well as the end result.
 
 ### `yarn build`
 
