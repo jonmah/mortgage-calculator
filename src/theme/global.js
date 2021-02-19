@@ -29,6 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #343a40;
+    --disabled: #abb9c6;
     --breakpoint-xs: 0;
     --breakpoint-sm: 376px;
     --breakpoint-md: 768px;

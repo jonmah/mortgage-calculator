@@ -2,8 +2,13 @@ import React from 'react'
 
 import { Container } from './Button.styled'
 
-const Button = ({ label, handleClick, type }) => (
-  <Container type={type} onClick={handleClick} value={label}>
+const Button = ({ disabled, handleClick, label, type }) => (
+  <Container
+    disabled={disabled}
+    onClick={handleClick}
+    type={type}
+    value={label}
+  >
     {label}
   </Container>
 )

@@ -8,12 +8,20 @@ import {
 import { Container, Form, RowItems, Select } from './SavingsCalculator.styled'
 import { Button, MoneyInput, PercentInput } from '../components'
 import { transformSubmitData } from './transforms'
+import { isObjectEmpty } from '../transforms/objects'
 
 const MAX_YEARS_OF_SAVING = 5
 const MONTHS_IN_A_YEAR = 12
 
 const SavingsCalculator = () => {
-  const { errors, formState, handleSubmit, register } = useForm()
+  const {
+    errors,
+    formState,
+    getValues,
+    handleSubmit,
+    register,
+    reset,
+  } = useForm()
 
   const [amortizationPeriods] = useState([10, 15, 20, 30, 50])
   const [numSavingsMonths] = useState(
@@ -35,6 +43,7 @@ const SavingsCalculator = () => {
   const onSubmit = async data => {
     const payment = await getMonthlyMortgagePayment(transformSubmitData(data))
     setMonthlyPayment(payment)
+    reset(getValues())
   }
 
   console.log(formState)
@@ -43,10 +52,10 @@ const SavingsCalculator = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <RowItems>
-          <h3>
+          <h1>
             Let's calculate your monthly mortgage payments, shall we?
             <span>*</span>
-          </h3>
+          </h1>
         </RowItems>
         <MoneyInput
           name="principalAmount"
@@ -106,7 +115,15 @@ const SavingsCalculator = () => {
             </option>
           ))}
         </Select>
-        <Button type="submit" label="Calculate" />
+        <Button
+          type="submit"
+          label="Calculate"
+          disabled={
+            formState.isSubmitting ||
+            !formState.isDirty ||
+            !isObjectEmpty(errors)
+          }
+        />
       </Form>
       {monthlyPayment}
     </Container>
