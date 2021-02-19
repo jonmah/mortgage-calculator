@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Input } from './NumberInput.styled'
 import {
@@ -11,9 +11,9 @@ import {
 
 const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
   const [value, setValue] = useState(defaultValue)
-  const [displayValue, setDisplayValue] = useState(defaultValue)
 
-  useEffect(() => {
+  const thing = e => {
+    const { value } = e.target
     if (
       isLastCharValid(value) ||
       !hasValidDecimals(value) ||
@@ -22,26 +22,22 @@ const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
       // Strip off most recent character if it violates the composition of a number
       const removedLastChar = value.substring(0, value.length - 1)
       setValue(isLastCharValid(removedLastChar) ? '' : removedLastChar)
+      e.target.value = isLastCharValid(removedLastChar) ? '' : removedLastChar
     } else if (value?.length > 0) {
       // Protect against copy/pasting a non-number
       const cleanValue = value.replaceAll(',', '')
-      setValue(isNotANumber(cleanValue) ? '' : value)
-      setDisplayValue(isNotANumber(cleanValue) ? '' : formatNumber(value))
-    } else {
-      setDisplayValue('')
+      setValue(isNotANumber(cleanValue) ? '' : formatNumber(value))
+      e.target.value = isNotANumber(cleanValue) ? '' : formatNumber(value)
     }
-  }, [displayValue, value])
+  }
 
   return (
     <Input
       name={name}
-      onBlur={() => setValue(parseFloat(value.replaceAll(',', '')).toFixed(2))}
-      onChange={e => {
-        setValue(e.target.value)
-      }}
+      onChange={e => thing(e)}
       placeholder={placeholder}
       ref={register}
-      value={displayValue}
+      defaultValue={value}
     />
   )
 }

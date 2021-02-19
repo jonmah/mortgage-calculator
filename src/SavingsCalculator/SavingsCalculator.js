@@ -54,7 +54,7 @@ const SavingsCalculator = () => {
           formState.isSubmitSuccessful && !formState.isDirty && monthlyPayment
         }
       >
-        Your monthly payment is {monthlyPayment}
+        Your monthly payment is ${monthlyPayment}
       </Banner>
       <Banner show={formState.isDirty && !isObjectEmpty(errors)}>
         {Object.values(errors).map(({ message, ref }) => (

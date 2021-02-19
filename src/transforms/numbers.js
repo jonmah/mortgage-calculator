@@ -1,6 +1,6 @@
 export const formatNumber = v => {
   const formatted = new Intl.NumberFormat('en-US').format(
-    Number(v.replaceAll(',', ''))
+    Number(`${v}`.replaceAll(',', ''))
   )
   return isLastValueDecimal(v) ? `${formatted}.` : formatted
 }
@@ -12,10 +12,9 @@ export const hasValidDecimalPlaces = v => {
 
 export const hasValidDecimals = v => v.indexOf('.') === v.lastIndexOf('.')
 
-export const isLastCharValid = v => {
-  return isNaN(v.charAt(v.length - 1)) && !isLastValueDecimal(v)
-}
+export const isLastCharValid = v =>
+  isNaN(v.charAt(v.length - 1)) && !isLastValueDecimal(v)
 
-const isLastValueDecimal = v => v.charAt(v.length - 1) === '.'
+const isLastValueDecimal = v => `${v}`.charAt(v.length - 1) === '.'
 
 export const isNotANumber = v => isNaN(v)

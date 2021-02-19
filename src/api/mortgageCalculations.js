@@ -1,3 +1,5 @@
+import { formatNumber } from '../transforms/numbers'
+
 export const getInterestRate = async () => {
   const result = await Promise.resolve('2.5')
   return result
@@ -17,6 +19,8 @@ export const getMonthlyMortgagePayment = async ({
     (partial - 1)
   ).toFixed(2)
 
-  const result = await Promise.resolve(monthlyPayment)
+  const result = await Promise.resolve(
+    formatNumber(monthlyPayment < 0 ? 0 : monthlyPayment)
+  )
   return result
 }

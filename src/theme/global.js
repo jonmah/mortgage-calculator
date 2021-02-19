@@ -50,12 +50,12 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--gray);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    font-family: var(--font-family-sans-serif);
     height: 100vh;
+    justify-content: center;
     margin: 0;
     overflow: hidden;
     padding: 0;
-    font-family: var(--font-family-sans-serif);
     transition: all 0.25s linear;
   }
   
