@@ -21,13 +21,17 @@ const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
     ) {
       // Strip off most recent character if it violates the composition of a number
       const removedLastChar = value.substring(0, value.length - 1)
-      setValue(isLastCharValid(removedLastChar) ? '' : removedLastChar)
-      e.target.value = isLastCharValid(removedLastChar) ? '' : removedLastChar
+      const cleanedValue = isLastCharValid(removedLastChar)
+        ? ''
+        : removedLastChar
+      setValue(cleanedValue)
+      e.target.value = cleanedValue
     } else if (value?.length > 0) {
       // Protect against copy/pasting a non-number
       const cleanValue = value.replaceAll(',', '')
-      setValue(isNotANumber(cleanValue) ? '' : formatNumber(value))
-      e.target.value = isNotANumber(cleanValue) ? '' : formatNumber(value)
+      const cleanedValue = isNotANumber(cleanValue) ? '' : formatNumber(value)
+      setValue(cleanedValue)
+      e.target.value = cleanedValue
     }
   }
 
