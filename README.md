@@ -11,7 +11,9 @@ The feature presents a `Mortgage Calculator` that takes in the following informa
 
 The calculation for mortgage payments is using the following formula:
 
+```
 Payment = P x (r / n) x (1 + r / n)^n(t) / (1 + r / n)^n(t) - 1
+```
 Where:
 P = Principal Amount
 r = Interest Rate
@@ -25,11 +27,15 @@ In addition, the user has the option to specify:
 
 The savings calculation is as follows:
 
+```
 Saved Amount = (Amount per month) x (Number of months)
+```
 
 And then it affects the monthly payment calculation by having
 
+```
 Principal Amount = (Principal Amount) - (Saved Amount)
+```
 
 And by providing this optional budgeting information, the user will be able to see how their amount saved and contributed towards a down payment will reduce the loan principle.
 
