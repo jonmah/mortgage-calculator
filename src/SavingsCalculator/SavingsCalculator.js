@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { getInterestRate } from '../api/mortgageCalculations'
+import {
+  getInterestRate,
+  getMonthlyMortgagePayment,
+} from '../api/mortgageCalculations'
 import { Container, Form, RowItems, Select } from './SavingsCalculator.styled'
 import { Button, MoneyInput, PercentInput } from '../components'
+import { transformSubmitData } from './transforms'
+
+const MAX_YEARS_OF_SAVING = 5
+const MONTHS_IN_A_YEAR = 12
 
 const SavingsCalculator = () => {
-  const {
-    // control,
-    errors,
-    formState,
-    handleSubmit,
-    register,
-    // reset,
-    // setValue,
-  } = useForm()
+  const { errors, formState, handleSubmit, register } = useForm()
 
   const [amortizationPeriods] = useState([10, 15, 20, 30, 50])
   const [numSavingsMonths] = useState(
-    Array(12 * 5)
+    Array(MAX_YEARS_OF_SAVING * MONTHS_IN_A_YEAR)
       .fill()
       .map((_, idx) => 1 + idx)
   )
@@ -33,7 +32,10 @@ const SavingsCalculator = () => {
     populateInterestRate()
   }, [])
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async data => {
+    const payment = await getMonthlyMortgagePayment(transformSubmitData(data))
+    setMonthlyPayment(payment)
+  }
 
   console.log(formState)
   console.log(errors)
@@ -41,7 +43,10 @@ const SavingsCalculator = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <RowItems>
-          <h3>Let's calculate your monthly mortgage payments, shall we?</h3>
+          <h3>
+            Let's calculate your monthly mortgage payments, shall we?
+            <span>*</span>
+          </h3>
         </RowItems>
         <MoneyInput
           name="principalAmount"
@@ -84,7 +89,7 @@ const SavingsCalculator = () => {
         </RowItems>
         <RowItems>
           <h3>
-            Optional - See how your savings cab go toward reducing your payments
+            Optional - See how your savings can go toward reducing your payments
           </h3>
         </RowItems>
         <MoneyInput
