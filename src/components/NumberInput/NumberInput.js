@@ -28,8 +28,9 @@ const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
       e.target.value = cleanedValue
     } else if (value?.length > 0) {
       // Protect against copy/pasting a non-number
-      const cleanValue = value.replaceAll(',', '')
-      const cleanedValue = isNotANumber(cleanValue) ? '' : formatNumber(value)
+      const cleanedValue = isNotANumber(value.replaceAll(',', ''))
+        ? ''
+        : formatNumber(value)
       setValue(cleanedValue)
       e.target.value = cleanedValue
     }
