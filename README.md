@@ -12,7 +12,7 @@ The feature presents a `Mortgage Calculator` that takes in the following informa
 The calculation for mortgage payments is using the following formula:
 
 ```
-Payment = P x (r / n) x (1 + r / n)^n(t) / (1 + r / n)^n(t) - 1
+Payment = P x (r / n) x (1 + r / n)^n(t) / ( (1 + r / n)^n(t) - 1)
 
 P = Principal Amount
 r = Interest Rate
