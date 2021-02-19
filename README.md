@@ -13,12 +13,13 @@ The calculation for mortgage payments is using the following formula:
 
 ```
 Payment = P x (r / n) x (1 + r / n)^n(t) / (1 + r / n)^n(t) - 1
-```
-Where:
+
 P = Principal Amount
 r = Interest Rate
 n = 12 (months in a year)
 t = Payment Period
+```
+
 [Source](https://www.thebalance.com/calculate-mortgage-315668#mntl-sc-block_1-0-26)
 
 In addition, the user has the option to specify:
