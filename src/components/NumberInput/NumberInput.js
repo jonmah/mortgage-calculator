@@ -14,7 +14,6 @@ const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
 
   const transform = e => {
     const { value } = e.target
-    console.log(isLastCharInvalid(value))
     if (
       isLastCharInvalid(value) ||
       !hasValidDecimals(value) ||
