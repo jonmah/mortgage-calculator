@@ -6,8 +6,8 @@ export const transformSubmitData = ({
   principalAmount,
 }) => ({
   amortizationPeriod: Number(amortizationPeriod),
-  interestRate: Number(interestRate.replaceAll(',', '')) / 100,
-  monthlySavings: Number(monthlySavings.replaceAll(',', '')),
+  interestRate: Number(interestRate.replace(/,/g, '')) / 100,
+  monthlySavings: Number(monthlySavings.replace(/,/g, '')),
   numSavingsMonths: Number(numSavingsMonths),
-  principalAmount: Number(principalAmount.replaceAll(',', '')),
+  principalAmount: Number(principalAmount.replace(/,/g, '')),
 })
