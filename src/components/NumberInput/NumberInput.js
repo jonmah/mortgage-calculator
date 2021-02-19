@@ -9,13 +9,7 @@ import {
   isNotANumber,
 } from '../../transforms/numbers'
 
-const NumberInput = ({
-  defaultValue = '',
-  name,
-  placeholder,
-  register,
-  required,
-}) => {
+const NumberInput = ({ defaultValue = '', name, placeholder, register }) => {
   const [value, setValue] = useState(defaultValue)
   const [displayValue, setDisplayValue] = useState(defaultValue)
 
@@ -42,7 +36,7 @@ const NumberInput = ({
       onBlur={() => setValue(parseFloat(value.replaceAll(',', '')).toFixed(2))}
       onChange={e => setValue(e.target.value)}
       placeholder={placeholder}
-      ref={register({ required })}
+      ref={register}
       value={displayValue}
     />
   )

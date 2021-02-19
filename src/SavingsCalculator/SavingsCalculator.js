@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { getInterestRate } from '../api/mortgageCalculations'
-import { Container, Form, Select } from './SavingsCalculator.styled'
+import { Container, Form, RowItems, Select } from './SavingsCalculator.styled'
 import { Button, MoneyInput, PercentInput } from '../components'
 
 const SavingsCalculator = () => {
   const {
     // control,
-    // errors,
-    // formState,
+    errors,
+    formState,
     handleSubmit,
     register,
     // reset,
@@ -35,38 +35,64 @@ const SavingsCalculator = () => {
 
   const onSubmit = data => console.log(data)
 
+  console.log(formState)
+  console.log(errors)
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <RowItems>
+          <h3>Let's calculate your monthly mortgage payments, shall we?</h3>
+        </RowItems>
         <MoneyInput
           name="principalAmount"
-          placeholder="Principal Amount"
-          register={register}
-          required
+          placeholder="Principal amount"
+          register={register({
+            required: 'Principal amount is required.',
+            pattern: {
+              value: /\d+/,
+              message: 'Principal amount is number only.',
+            },
+          })}
         />
-        <Select name="amortizationPeriod" ref={register} required>
-          <option value="">Payment Period</option>
-          <option value=""></option>
-          {amortizationPeriods.map(ap => (
-            <option key={ap} value={ap}>
-              {ap} years
-            </option>
-          ))}
-        </Select>
-        <PercentInput
-          defaultValue={interestRate}
-          name="interestRate"
-          placeholder="Interest Rate"
-          register={register}
-          required
-        />
+        <RowItems>
+          <Select
+            name="amortizationPeriod"
+            ref={register({
+              required: 'Payment period is required.',
+            })}
+          >
+            <option value="">Payment period</option>
+            <option value=""></option>
+            {amortizationPeriods.map(ap => (
+              <option key={ap} value={ap}>
+                {ap} years
+              </option>
+            ))}
+          </Select>
+          <PercentInput
+            defaultValue={interestRate}
+            name="interestRate"
+            placeholder="Interest rate"
+            register={register({
+              required: 'Interest rate is required.',
+              pattern: {
+                value: /\d+/,
+                message: 'Interest rate is number only.',
+              },
+            })}
+          />
+        </RowItems>
+        <RowItems>
+          <h3>
+            Optional - See how your savings cab go toward reducing your payments
+          </h3>
+        </RowItems>
         <MoneyInput
           name="monthlySavings"
-          placeholder="Monthly Savings"
+          placeholder="Savings per month"
           register={register}
-          required={false}
         />
-        <Select name="numSavingsMonths" ref={register} required={false}>
+        <Select name="numSavingsMonths" ref={register}>
           <option value="">Number of Months to Save</option>
           <option value=""></option>
           {numSavingsMonths.map(ap => (

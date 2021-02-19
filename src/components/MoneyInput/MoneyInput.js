@@ -13,12 +13,7 @@ const MoneyInput = ({
   return (
     <Container>
       <Currency>{currency}</Currency>
-      <NumberInput
-        name={name}
-        placeholder={placeholder}
-        register={register}
-        required={required}
-      />
+      <NumberInput name={name} placeholder={placeholder} register={register} />
     </Container>
   )
 }

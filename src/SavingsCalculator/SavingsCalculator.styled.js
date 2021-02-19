@@ -31,6 +31,19 @@ export const Form = styled.form`
 `
 Form.displayName = 'Form'
 
+export const RowItems = styled.div`
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+
+  div,
+  select {
+    width: 45%;
+  }
+`
+RowItems.displayName = 'RowItems'
+
 export const Select = styled.select`
   border-radius: 0.2rem;
   // box-shadow: var(--field-error);
@@ -38,3 +51,9 @@ export const Select = styled.select`
   padding: 0.8rem;
 `
 Select.displayName = 'Select'
+
+export const H3 = styled.h3`
+  font-style: normal;
+  font-weight: 250;
+  font-size: 32px;
+`

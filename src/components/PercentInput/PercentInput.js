@@ -17,7 +17,6 @@ const PercentInput = ({
         name={name}
         placeholder={placeholder}
         register={register}
-        required={required}
       />
       <Percent>%</Percent>
     </Container>
