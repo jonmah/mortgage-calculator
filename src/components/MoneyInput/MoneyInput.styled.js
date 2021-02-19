@@ -8,6 +8,7 @@ export const Container = styled.div`
     border-radius: 0 0.3rem 0.3rem 0;
   }
 `
+Container.displayName = 'Container'
 
 export const Currency = styled.span`
   align-items: center;
@@ -23,3 +24,4 @@ export const Currency = styled.span`
   padding: 0.8rem;
   width: 4rem;
 `
+Currency.displayName = 'Currency'

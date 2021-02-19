@@ -17,7 +17,7 @@ const MoneyInput = ({
         name={name}
         placeholder={placeholder}
         register={register}
-        required
+        required={required}
       />
     </Container>
   )

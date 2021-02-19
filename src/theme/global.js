@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     --light: #f8f9fa;
     --dark: #343a40;
     --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
+    --breakpoint-sm: 376px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;

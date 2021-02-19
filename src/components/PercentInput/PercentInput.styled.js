@@ -9,12 +9,13 @@ export const Container = styled.div`
     text-align: right;
   }
 `
+Container.displayName = 'Container'
 
 export const Percent = styled.span`
   align-items: center;
   background: #eee;
   border-bottom: var(--field-border);
-  border-left: var(--field-border);
+  border-right: var(--field-border);
   border-top: var(--field-border);
   display: flex;
   font-size: 1.2rem;
@@ -24,3 +25,4 @@ export const Percent = styled.span`
   padding: 0.8rem;
   width: 4rem;
 `
+Percent.displayName = 'Percent'

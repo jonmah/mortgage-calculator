@@ -9,9 +9,15 @@ import {
   isNotANumber,
 } from '../../transforms/numbers'
 
-const NumberInput = ({ name, placeholder, register, required }) => {
-  const [value, setValue] = useState('')
-  const [displayValue, setDisplayValue] = useState('')
+const NumberInput = ({
+  defaultValue = '',
+  name,
+  placeholder,
+  register,
+  required,
+}) => {
+  const [value, setValue] = useState(defaultValue)
+  const [displayValue, setDisplayValue] = useState(defaultValue)
 
   useEffect(() => {
     if (
