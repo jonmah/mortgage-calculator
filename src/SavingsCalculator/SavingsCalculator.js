@@ -65,10 +65,7 @@ const SavingsCalculator = () => {
       </Banner>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <RowItems>
-          <h1>
-            Let's calculate your monthly mortgage payments, shall we?
-            <span>*</span>
-          </h1>
+          <h1>Let's calculate your monthly mortgage payments, shall we?</h1>
         </RowItems>
         <MoneyInput
           name="principalAmount"

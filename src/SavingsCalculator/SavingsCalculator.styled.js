@@ -5,6 +5,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  h1,
+  h3 {
+    font-style: normal;
+    font-weight: 250;
+  }
 `
 Container.displayName = 'Container'
 
