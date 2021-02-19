@@ -9,7 +9,7 @@ The feature presents a `Mortgage Calculator` that takes in the following informa
 2. Interest rate defaulted to the current federal interest +2.5%
 3. Principal amount
 
-The calculation for mortgage payments is using the following formula:
+The calculation for mortgage payments is using the following formula ([Source](https://www.thebalance.com/calculate-mortgage-315668#mntl-sc-block_1-0-26)):
 
 ```
 Payment = P x (r / n) x (1 + r / n)^n(t) / ( (1 + r / n)^n(t) - 1 )
@@ -19,8 +19,6 @@ r = Interest Rate
 n = 12 (months in a year)
 t = Payment Period
 ```
-
-[Source](https://www.thebalance.com/calculate-mortgage-315668#mntl-sc-block_1-0-26)
 
 In addition, the user has the option to specify:
 1. The amount of savings they can set aside each month
