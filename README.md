@@ -38,7 +38,9 @@ Principal Amount = (Principal Amount) - (Saved Amount)
 
 And by providing this optional budgeting information, the user will be able to see how their amount saved and contributed towards a down payment will reduce the loan principle.
 
-
+## Requirements
+1. `Node` (version >= 10) on your local development environment but not required on server
+2. `Yarn`/`npm`/`npx`
 
 ## Available Scripts
 
