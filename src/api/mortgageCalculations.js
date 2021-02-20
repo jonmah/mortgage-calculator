@@ -20,7 +20,9 @@ export const getMonthlyMortgagePayment = async ({
   ).toFixed(2)
 
   const result = await Promise.resolve(
-    formatNumber(monthlyPayment < 0 ? 0 : monthlyPayment)
+    formatNumber(
+      isNaN(monthlyPayment) || monthlyPayment < 0 ? 0 : monthlyPayment
+    )
   )
   return result
 }
